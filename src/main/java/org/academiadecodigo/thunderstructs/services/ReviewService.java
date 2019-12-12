@@ -12,7 +12,7 @@ public interface ReviewService {
 
 	String getReview(Integer id);
 
-	ReviewModel save(ReviewModel reviewModel);
+	void save(ReviewModel reviewModel);
 
 	void delete(Integer id);
 
