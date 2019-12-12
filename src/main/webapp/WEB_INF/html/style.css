@@ -2,6 +2,8 @@ html, body {
     margin:0;
     height: 120%;
     font-family: 'Open Sans Condensed', sans-serif;
+    position: relative;
+    z-index: 0;
 }
 
 .info, h1 {
@@ -67,9 +69,21 @@ html, body {
     font-size:1.2em;
     box-sizing:border-box;
     font-size: 40px;
-    margin-left: 293px;
-    margin-top: 200px;
-    position: absolute;
+    left: -3px;
+    top: 220px;
+    position: relative;
+    z-index: 1;
+    transition: ease-out 500ms;
+  }
+
+  .logo:hover {
+      color: rgb(75, 75, 189);
+      background-color: white;
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -ms-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease;
   }
 
   .sides, .info{
