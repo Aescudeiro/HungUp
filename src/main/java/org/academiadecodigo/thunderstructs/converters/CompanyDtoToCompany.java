@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+import java.util.List;
+
 @Component
 public class CompanyDtoToCompany {
 
@@ -19,11 +22,19 @@ public class CompanyDtoToCompany {
 
     public CompanyModel convert(CompanyDTO dto){
         CompanyModel model = new CompanyModel();
-
-        model.setId(dto.getId());
         model.setName(dto.getName());
-        model.setReviews(toReview.convertList(dto.getReviews()));
+        model.setReviews(dto.getReviews());
 
         return model;
     }
+
+    public List<CompanyModel> converList(List<CompanyDTO> companyDTOS){
+        List<CompanyModel> companyModels = new LinkedList<>(  );
+        for ( CompanyDTO dto :
+                companyDTOS ) {
+            companyModels.add( convert( dto ) );
+        }
+        return companyModels;
+    }
+
 }

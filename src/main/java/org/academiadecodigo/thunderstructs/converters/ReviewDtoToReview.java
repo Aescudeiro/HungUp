@@ -13,7 +13,6 @@ public class ReviewDtoToReview {
 	public ReviewModel convert ( ReviewDTO reviewDTO ) {
 
 		ReviewModel reviewModel = new ReviewModel();
-		reviewModel.setId( reviewDTO.getId() );
 		reviewModel.setRating( reviewDTO.getRating() );
 		reviewModel.setReview( reviewDTO.getReview() );
 		return reviewModel;
