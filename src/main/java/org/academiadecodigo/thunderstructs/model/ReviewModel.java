@@ -20,7 +20,7 @@ public class ReviewModel implements Model {
 		return rating;
 	}
 
-	public void setRating ( Integer rating ) {
+	public void setRating ( double rating ) {
 		this.rating = rating;
 	}
 
