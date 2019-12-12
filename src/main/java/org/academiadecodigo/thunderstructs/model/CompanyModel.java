@@ -1,13 +1,59 @@
 package org.academiadecodigo.thunderstructs.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class CompanyModel implements Model {
-	@Override
-	public Integer getId () {
-		return null;
+
+	private Integer id;
+	private String name;
+	private List<ReviewModel> reviews;
+
+	public CompanyModel() {
+		reviews = new LinkedList<>();
 	}
 
 	@Override
-	public void setId () {
+	public Integer getId () {
+		return this.id;
+	}
 
+	@Override
+	public void setId (Integer id) {
+		this.id = id;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public List<ReviewModel> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<ReviewModel> reviews) {
+		this.reviews = reviews;
+	}
+
+	public void addReview(ReviewModel review){
+		reviews.add(review);
+	}
+
+	public ReviewModel openReview(Integer id){
+
+		ReviewModel target = null;
+
+		for(ReviewModel review : reviews){
+			if(review.getId() == id){
+				target = review;
+				break;
+			}
+		}
+
+		return target;
 	}
 }

@@ -7,7 +7,7 @@ public class ReviewModel implements Model {
 	}
 
 	@Override
-	public void setId () {
+	public void setId (Integer Id) {
 
 	}
 }
