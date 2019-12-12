@@ -4,5 +4,5 @@ public interface Model {
 
 	Integer getId();
 
-	void setId();
+	void setId(Integer id);
 }
