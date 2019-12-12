@@ -1,6 +1,7 @@
 package org.academiadecodigo.thunderstructs.services;
 
 import org.academiadecodigo.thunderstructs.model.CompanyModel;
+import org.academiadecodigo.thunderstructs.model.ReviewModel;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -13,6 +14,24 @@ public class CompanyServiceImpl implements CompanyService {
 
     public CompanyServiceImpl() {
         this.companies = new LinkedList<>();
+        CompanyModel companyModel = new CompanyModel();
+        companyModel.setId( 1 );
+        companyModel.setName( "ola" );
+
+        ReviewModel review = new ReviewModel();
+        review.setReview( "ahahah" );
+        review.setRating( 4 );
+        review.setId( 1 );
+        companyModel.addReview( review );
+
+        ReviewModel review1 = new ReviewModel();
+        review1.setReview( "ola3" );
+        review1.setRating( 4 );
+        review1.setId( 2 );
+        companyModel.addReview( review1 );
+
+        companies.add( companyModel );
+
     }
 
     @Override

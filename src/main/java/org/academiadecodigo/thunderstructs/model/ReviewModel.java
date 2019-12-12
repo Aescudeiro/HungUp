@@ -2,9 +2,15 @@ package org.academiadecodigo.thunderstructs.model;
 
 public class ReviewModel implements Model {
 
+	private static Integer counter = 0;
 	private Integer id;
 	private double rating;
 	private String review;
+
+	public ReviewModel () {
+		this.counter++;
+		this.id = this.counter;
+	}
 
 	@Override
 	public Integer getId () {
@@ -20,7 +26,7 @@ public class ReviewModel implements Model {
 		return rating;
 	}
 
-	public void setRating ( Integer rating ) {
+	public void setRating ( double rating ) {
 		this.rating = rating;
 	}
 
