@@ -7,6 +7,7 @@ public class CompanyModel implements Model {
 
 	private static Integer counter = 0;
 	private Integer id;
+	private double rating;
 	private String name;
 	private List<ReviewModel> reviews;
 
@@ -14,6 +15,14 @@ public class CompanyModel implements Model {
 		reviews = new LinkedList<>();
 		this.counter++;
 		this.id = this.counter;
+	}
+
+	public double getRating () {
+		return rating;
+	}
+
+	public void setRating ( double rating ) {
+		this.rating = rating;
 	}
 
 	@Override

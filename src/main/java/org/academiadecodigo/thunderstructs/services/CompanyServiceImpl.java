@@ -19,12 +19,14 @@ public class CompanyServiceImpl implements CompanyService {
         companyModel.setName( "ola" );
 
         ReviewModel review = new ReviewModel();
+        review.setName( "Afonso" );
         review.setReview( "ahahah" );
         review.setRating( 4 );
         review.setId( 1 );
         companyModel.addReview( review );
 
         ReviewModel review1 = new ReviewModel();
+        review1.setName( "Bro" );
         review1.setReview( "ola3" );
         review1.setRating( 4 );
         review1.setId( 2 );
@@ -49,12 +51,26 @@ public class CompanyServiceImpl implements CompanyService {
                 break;
             }
         }
-
         return target;
     }
 
     @Override
     public void addCompany(CompanyModel company) {
         companies.add(company);
+    }
+
+    @Override
+    public void updateRating (String name) {
+        for ( CompanyModel companyModel: companies) {
+            if(companyModel.getName().equals( name )){
+                double rating = 0;
+                int counter = 0;
+                for ( ReviewModel reviewModel : companyModel.getReviews()) {
+                    rating += reviewModel.getRating();
+                    counter++;
+                }
+                companyModel.setRating( rating / counter );
+            }
+        }
     }
 }

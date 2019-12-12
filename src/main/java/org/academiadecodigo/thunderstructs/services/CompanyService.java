@@ -14,8 +14,5 @@ public interface CompanyService {
 
     void addCompany(CompanyModel company);
 
-
-
-
-
+    void updateRating(String cname);
 }

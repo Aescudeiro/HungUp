@@ -1,5 +1,6 @@
 package org.academiadecodigo.thunderstructs.services;
 
+import org.academiadecodigo.thunderstructs.model.CompanyModel;
 import org.academiadecodigo.thunderstructs.model.ReviewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public ReviewModel get (String cname, Integer id ) {
-		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+	public ReviewModel get ( String cname, Integer id ) {
+		List< ReviewModel > reviewModels = companyService.getCompany( cname ).getReviews();
 		for ( ReviewModel r : reviewModels ) {
 			if ( r.getId().equals( id ) ) {
 				return r;
@@ -28,8 +29,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public double getRating (String cname, Integer id ) {
-		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+	public double getRating ( String cname, Integer id ) {
+		List< ReviewModel > reviewModels = companyService.getCompany( cname ).getReviews();
 		for ( ReviewModel r : reviewModels ) {
 			if ( r.getId().equals( id ) ) {
 				return r.getRating();
@@ -39,8 +40,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public String getReview ( String cname,Integer id ) {
-		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+	public String getReview ( String cname, Integer id ) {
+		List< ReviewModel > reviewModels = companyService.getCompany( cname ).getReviews();
 		for ( ReviewModel r : reviewModels ) {
 			if ( r.getId().equals( id ) ) {
 				return r.getReview();
@@ -50,13 +51,13 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public void save ( String cname,ReviewModel reviewModel ) {
+	public void save ( String cname, ReviewModel reviewModel ) {
 		companyService.getCompany( cname ).addReview( reviewModel );
 	}
 
 	@Override
-	public void delete ( String cname,Integer id ) {
-		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+	public void delete ( String cname, Integer id ) {
+		List< ReviewModel > reviewModels = companyService.getCompany( cname ).getReviews();
 		for ( ReviewModel r : reviewModels ) {
 			if ( r.getId().equals( id ) ) {
 				companyService.getCompany( cname ).getReviews().remove( r );
@@ -65,8 +66,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List< ReviewModel > list (String cname) {
-		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+	public List< ReviewModel > list ( String cname ) {
+		List< ReviewModel > reviewModels = companyService.getCompany( cname ).getReviews();
 		return reviewModels;
 	}
+
 }
