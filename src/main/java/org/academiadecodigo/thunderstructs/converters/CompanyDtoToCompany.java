@@ -22,7 +22,7 @@ public class CompanyDtoToCompany {
 
         model.setId(dto.getId());
         model.setName(dto.getName());
-        model.getReviews(toReview.convertList(dto.getReviews()));
+        model.setReviews(toReview.convertList(dto.getReviews()));
 
         return model;
     }
