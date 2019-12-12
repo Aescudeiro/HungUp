@@ -15,6 +15,7 @@ public class ReviewDtoToReview {
 		ReviewModel reviewModel = new ReviewModel();
 		reviewModel.setRating( reviewDTO.getRating() );
 		reviewModel.setReview( reviewDTO.getReview() );
+		reviewModel.setName( reviewDTO.getName() );
 		return reviewModel;
 
 	}
