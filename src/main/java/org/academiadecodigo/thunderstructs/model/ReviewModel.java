@@ -3,7 +3,7 @@ package org.academiadecodigo.thunderstructs.model;
 public class ReviewModel implements Model {
 
 	private Integer id;
-	private Integer rating;
+	private double rating;
 	private String review;
 
 	@Override
@@ -16,7 +16,7 @@ public class ReviewModel implements Model {
 		this.id = id;
 	}
 
-	public Integer getRating () {
+	public double getRating () {
 		return rating;
 	}
 
