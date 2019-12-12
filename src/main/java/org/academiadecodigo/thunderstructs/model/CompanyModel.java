@@ -5,12 +5,15 @@ import java.util.List;
 
 public class CompanyModel implements Model {
 
+	private static Integer counter = 0;
 	private Integer id;
 	private String name;
 	private List<ReviewModel> reviews;
 
 	public CompanyModel() {
 		reviews = new LinkedList<>();
+		this.counter++;
+		this.id = this.counter;
 	}
 
 	@Override
