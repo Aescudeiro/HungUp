@@ -6,16 +6,16 @@ import java.util.List;
 
 public interface ReviewService {
 
-	ReviewModel get(Integer id);
+	ReviewModel get(String cname,Integer id);
 
-	double getRating(Integer id);
+	double getRating(String cname, Integer id);
 
-	String getReview(Integer id);
+	String getReview(String cname, Integer id);
 
-	void save(ReviewModel reviewModel);
+	void save(String cname,ReviewModel reviewModel);
 
-	void delete(Integer id);
+	void delete(String cname,Integer id);
 
-	List<ReviewModel> list();
+	List<ReviewModel> list(String cname);
 
 }

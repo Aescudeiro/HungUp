@@ -17,36 +17,56 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public ReviewModel get ( Integer id ) {
-		return companyService.
+	public ReviewModel get (String cname, Integer id ) {
+		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+		for ( ReviewModel r : reviewModels ) {
+			if ( r.getId().equals( id ) ) {
+				return r;
+			}
+		}
+		return null;
 	}
 
 	@Override
-	public double getRating ( Integer id ) {
-		return reviewModel.getRating();
+	public double getRating (String cname, Integer id ) {
+		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+		for ( ReviewModel r : reviewModels ) {
+			if ( r.getId().equals( id ) ) {
+				return r.getRating();
+			}
+		}
+		return 0;
 	}
 
 	@Override
-	public String getReview ( Integer id ) {
-		return reviewModel.getReview();
+	public String getReview ( String cname,Integer id ) {
+		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+		for ( ReviewModel r : reviewModels ) {
+			if ( r.getId().equals( id ) ) {
+				return r.getReview();
+			}
+		}
+		return null;
 	}
 
 	@Override
-	public void save ( ReviewModel reviewModel ) {
-		companyModel.getReviews().add( reviewModel );
+	public void save ( String cname,ReviewModel reviewModel ) {
+		companyService.getCompany( cname ).addReview( reviewModel );
 	}
 
 	@Override
-	public void delete ( Integer id ) {
-		for ( ReviewModel r : companyModel.getReviews() ) {
-			if( r.getId().equals( id ) ) {
-				companyModel.getReviews().remove( r );
+	public void delete ( String cname,Integer id ) {
+		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+		for ( ReviewModel r : reviewModels ) {
+			if ( r.getId().equals( id ) ) {
+				companyService.getCompany( cname ).getReviews().remove( r );
 			}
 		}
 	}
 
 	@Override
-	public List< ReviewModel > list () {
-		return companyModel.getReviews();
+	public List< ReviewModel > list (String cname) {
+		List<ReviewModel> reviewModels = companyService.getCompany( cname ).getReviews();
+		return reviewModels;
 	}
 }
