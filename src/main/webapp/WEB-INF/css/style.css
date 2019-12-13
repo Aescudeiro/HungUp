@@ -200,3 +200,13 @@ h1 {
       color: #f1f1f1
   }
   
+  #reviewsTable{
+    background-color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  #reviewTable{
+    background-color: white;
+    border: none;
+  }

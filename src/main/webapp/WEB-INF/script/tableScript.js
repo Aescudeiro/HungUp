@@ -24,6 +24,7 @@ function companyInfo(name){
   console.log("did")
   $(".hide").hide();
   $(".show").show();
+  $("#title").text(name);
   showDetails(name);
 }
 

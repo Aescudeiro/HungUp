@@ -20,16 +20,63 @@ function myFunction() {
   }
 }
 
-$(document).ready(function () {
+function companyInfo(name){
+  console.log("did")
+  $(".hide").hide();
+  $(".show").show();
+  showDetails(name);
+}
+
+function showDetails(name){
 
   function successCallback(response) {
-    console.log(response);
-    setInfo(response);
+    alert("hey nigga");
+    setReviews(response);
+  }
+
+  function errorCallback(request, status, error) {
+      console.log(request + status + error);
+  }
+
+  var reviewsTable = $('#reviewsTable');
+
+  $.ajax({
+    url: 'http://localhost:8080/hungup/api/company/'+ name + '/review',
+    async: true,
+    success: successCallback,
+    error: errorCallback
+});
+
+function setReviews(data){
+  console.log(data[1].name)
+  for(var i = 0; i < data.length; i++){
+    var string = '<tr id= "row' + data[i].id + '"><td>' + data[i].id + '</td>' +
+    '<td>' + data[i].name + '</td>' +
+    '<td>' + data[i].rating + '</td>' +
+    '<td>' + data[i].days + '</td>' +
+    '<td>' + data[i].review + '</td></tr>';
+
+
+    $(string).appendTo(reviewsTable)
+  }
 }
 
-function errorCallback(request, status, error) {
-    console.log(request + status + error);
+
+
 }
+
+$(document).ready(function () {
+
+  $(".show").hide();
+
+  function successCallback(response) {
+    //console.log(response);
+    setInfo(response);
+  }
+
+  function errorCallback(request, status, error) {
+      console.log(request + status + error);
+  }
 
   var usersTable = $('#myTable');
 
@@ -47,12 +94,17 @@ function setInfo(companyData) {
 
         var htmlStr = '<tr id= "row' + companyData[i].id + '"><td>' + companyData[i].id + '</td>' +
             '<td>' + companyData[i].name + '</td>' +
-            '<td>' + companyData[i].id + '</td>' +
+            '<td>' + companyData[i].days + '</td>' +
             '<td>' + companyData[i].rating + '</td>' +
-            '<td><button type="button" class="btn btn-primary">+info</button></td></tr>';
+            '<td><button id="btn-' + companyData[i].id +'" type="button" class="btn btn-primary">+info</button></td></tr>';
 
         $(htmlStr).appendTo(usersTable)
 
+        var name = companyData[i].name;
+
+        $('#btn-' + companyData[i].id).click(function() {
+          companyInfo(name);
+       });
     }
 }
 });
