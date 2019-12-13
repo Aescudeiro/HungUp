@@ -1,4 +1,6 @@
-html,
+html {
+  background-color: white;
+}
 body {
   margin: 0;
   height: 120%;
@@ -178,6 +180,7 @@ h1 {
     font-size: 18px; /* Increase font-size */
     position: relative;
     top: 30px;
+    background-color: #ddd
   }
   
   #myTable th, #myTable td {
@@ -197,5 +200,15 @@ h1 {
 
     #myTable tr.header {
       background-color: black;
-      color: #f1f1f1
+      color: rgb(122, 112, 112)
   }
+
+  .companyTable {
+    background-color: white;
+  }
+
+  .in {
+    background-color: white;
+  }
+
+ 

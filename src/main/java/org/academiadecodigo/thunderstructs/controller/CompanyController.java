@@ -74,6 +74,7 @@ public class CompanyController {
 			if ( model.getName().equals( name ) ) {
 				for ( ReviewModel r : model.getReviews()) {
 					if (r.getId().equals( id )){
+						companyService.update(model.getName());
 						return new ResponseEntity<>( r,HttpStatus.OK );
 					}
 				}
@@ -86,6 +87,7 @@ public class CompanyController {
 	public ResponseEntity< CompanyDTO > addCompany ( @RequestBody CompanyDTO companyDTO ) {
 		CompanyModel model = companyDtoToCompany.convert( companyDTO );
 		companyDTO.setId( model.getId() );
+		companyService.update(model.getName());
 		companyService.addCompany( model );
 		return new ResponseEntity<>( companyDTO, HttpStatus.CREATED );
 	}
