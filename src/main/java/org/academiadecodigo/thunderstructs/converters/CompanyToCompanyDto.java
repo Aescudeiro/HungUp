@@ -25,6 +25,7 @@ public class CompanyToCompanyDto {
         dto.setName(model.getName());
         dto.setReviews(model.getReviews());
         dto.setRating( model.getRating() );
+        dto.setDays( model.getDays() );
         return dto;
     }
 

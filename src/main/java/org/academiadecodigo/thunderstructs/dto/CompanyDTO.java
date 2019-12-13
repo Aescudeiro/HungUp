@@ -10,6 +10,7 @@ public class CompanyDTO {
     private Integer id;
     private String name;
     private double rating;
+    private Integer days;
     private List< ReviewModel > reviews;
 
     public List< ReviewModel > getReviews () {
@@ -28,7 +29,15 @@ public class CompanyDTO {
         this.rating = rating;
     }
 
-    public Integer getId() {
+	public Integer getDays () {
+		return days;
+	}
+
+	public void setDays ( Integer days ) {
+		this.days = days;
+	}
+
+	public Integer getId() {
         return id;
     }
 

@@ -60,16 +60,19 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void updateRating (String name) {
+    public void update (String name) {
         for ( CompanyModel companyModel: companies) {
             if(companyModel.getName().equals( name )){
+                int day = 0;
                 double rating = 0;
                 int counter = 0;
                 for ( ReviewModel reviewModel : companyModel.getReviews()) {
                     rating += reviewModel.getRating();
+                    day += reviewModel.getDays();
                     counter++;
                 }
                 companyModel.setRating( rating / counter );
+                companyModel.setDays( day / counter );
             }
         }
     }
