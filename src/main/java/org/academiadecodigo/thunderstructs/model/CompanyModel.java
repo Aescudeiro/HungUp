@@ -5,6 +5,7 @@ import java.util.List;
 
 public class CompanyModel implements Model {
 
+	private Integer days;
 	private static Integer counter = 0;
 	private Integer id;
 	private double rating;
@@ -35,7 +36,15 @@ public class CompanyModel implements Model {
 		this.id = id;
 	}
 
-	public void setName(String name){
+	public Integer getDays () {
+		return days;
+	}
+
+	public void setDays ( Integer days ) {
+		this.days = days;
+	}
+
+	public void setName( String name){
 		this.name = name;
 	}
 

@@ -17,6 +17,7 @@ public class ReviewToReviewDto {
 		reviewDTO.setRating( reviewModel.getRating() );
 		reviewDTO.setReview( reviewModel.getReview() );
 		reviewDTO.setName( reviewModel.getName() );
+		reviewDTO.setDays( reviewModel.getDays() );
 		return reviewDTO;
 
 	}
