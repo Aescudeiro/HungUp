@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hung Up</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+
+    <script src="/script/tableScript.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://github.com/Aescudeiro/HungUp" target="_blank" class="logo">HungUp</a>
+        <div class="info">
+            <h1>For your inpatient ass</h1>
+            <div class="meta">
+                <a href="https://github.com/Aescudeiro/HungUp" target="_blank" class="author"></a><br>
+                By <a href="https://github.com/Aescudeiro/HungUp" target="_blank"></a> Alpha Team
+            </div>
+        </div>
+    </div>
+    <div style="display:flex;justify-content: center">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    </div>
+    <div id="companyTable" style="display:flex;justify-content: center">
+
+        <table class="table" id="myTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Company</th>
+                    <th>Delivery Time</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+
+</html>
