@@ -1,20 +1,31 @@
+html {
+    scroll-behavior: smooth;
+}
 body{
-    background-image: url(/html/resources/orang.jpg);
+    background-image: url(/resources/orang.jpg);
     border: none;
     font-family: 'Quicksand', sans-serif;
+    background-size: cover;
 }
 .button{
-    color: #494949 !important;
+    color: black !important;
     text-transform: uppercase;
     text-decoration: none;
+    font-weight: 60;
     padding: 20px;
     border: 1px solid #494949 !important;
     display: inline-block;
     transition: all 0.4s ease 0s;
     position: relative;
     box-sizing: border-box;
-    top: 200px;
-    left: 450px;
+    top: -200px;
+    left: 0px;
+    }
+    .text1 {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 13px;
+        position: relative;
+        left: 10px;
     }
 
     .button:hover {
@@ -35,4 +46,5 @@ body{
             position: relative;
             top: 100px;
             left: 200px;
+            user-select: none;
         }

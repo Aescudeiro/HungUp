@@ -4,9 +4,10 @@ body{
     font-family: 'Quicksand', sans-serif;
 }
 .button{
-    color: #494949 !important;
+    color: black !important;
     text-transform: uppercase;
     text-decoration: none;
+    font-weight: 60;
     padding: 20px;
     border: 1px solid #494949 !important;
     display: inline-block;
@@ -15,6 +16,12 @@ body{
     box-sizing: border-box;
     top: 200px;
     left: 450px;
+    }
+    .text1 {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 20%;
+        position: relative;
+        left: 19px;
     }
 
     .button:hover {
