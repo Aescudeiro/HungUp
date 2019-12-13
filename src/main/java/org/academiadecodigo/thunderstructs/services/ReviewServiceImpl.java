@@ -1,6 +1,5 @@
 package org.academiadecodigo.thunderstructs.services;
 
-import org.academiadecodigo.thunderstructs.model.CompanyModel;
 import org.academiadecodigo.thunderstructs.model.ReviewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

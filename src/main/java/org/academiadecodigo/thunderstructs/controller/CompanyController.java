@@ -1,10 +1,9 @@
-package org.academiadecodigo.thunderstructs.controller.web;
+package org.academiadecodigo.thunderstructs.controller;
 
 
 import org.academiadecodigo.thunderstructs.converters.CompanyDtoToCompany;
 import org.academiadecodigo.thunderstructs.converters.CompanyToCompanyDto;
 import org.academiadecodigo.thunderstructs.dto.CompanyDTO;
-import org.academiadecodigo.thunderstructs.dto.ReviewDTO;
 import org.academiadecodigo.thunderstructs.model.CompanyModel;
 import org.academiadecodigo.thunderstructs.model.ReviewModel;
 import org.academiadecodigo.thunderstructs.services.CompanyService;
