@@ -1,56 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Welcome to HungUp!
-        </title>
-        
-        <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
-    </script>
 
-        <link rel="stylesheet" type="text/css" href="/css/indexCSS.css">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    
-    <body>
+<head>
+    <title>
+        Welcome to HungUp!
+    </title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+    <script src="/script/tableScript.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/indexCSS.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
     <div class="container">
         <div class="bof">
-        <div class="hng"><img src="/resources/hungup.png"></div>
+            <div class="hng"><img src="/resources/hungup.png"></div>
+        </div>
+        <div class="by">
+            <p class="text1">by Alpha Team</p>
+        </div>
     </div>
-        <div class="by"><p class="text1">by Alpha Team</p></div>
-   </div>
-   <script src="/script/tableScript.js"></script>
 
     <div class="header">
         <div class="info">
-                <div class="button_cont"><a class="button" href="#myInput" rel="nofollow noopener">Begin your search</a></div>
+            <div class="button_cont"><a class="button" href="#myInput" rel="nofollow noopener">Begin your search</a>
+            </div>
             <h1>For your inpatient ass</h1>
             <div class="meta">
                 <a href="https://github.com/Aescudeiro/HungUp" target="_blank" class="author"></a><br>
-                 <a href="https://github.com/Aescudeiro/HungUp" target="_blank"></a> 
+                <a href="https://github.com/Aescudeiro/HungUp" target="_blank"></a>
             </div>
         </div>
     </div>
-    <div style="display:flex;justify-content: center">
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-    </div>
-    <div id="companyTable" style="display:flex;justify-content: center">
 
-        <table class="table" id="myTable">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Company</th>
-                    <th>Delivery Time</th>
-                    <th>Rating</th>
-                    <th>+Info</th>
-                </tr>
-            </thead>
-        </table>
+    <div class="hide">
+        <div style="display:flex;justify-content: center">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+        </div>
+        <div id="companyTable" style="display:flex;justify-content: center">
+            <table class="table" id="myTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Company</th>
+                        <th>Delivery Time</th>
+                        <th>Rating</th>
+                        <th>+Info</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 
+    <div class="show">
+        <div id="reviewTable" style="display:flex;justify-content: center">
+            <table class="table" id="reviewsTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Rating</th>
+                        <th>Days</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </body>
+
 </html>
