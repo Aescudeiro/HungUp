@@ -47,7 +47,9 @@ function setInfo(companyData) {
 
         var htmlStr = '<tr id= "row' + companyData[i].id + '"><td>' + companyData[i].id + '</td>' +
             '<td>' + companyData[i].name + '</td>' +
-            '<td><button type="button" class="btn btn-primary">Primary</button></td></tr>';
+            '<td>' + companyData[i].id + '</td>' +
+            '<td>' + companyData[i].rating + '</td>' +
+            '<td><button type="button" class="btn btn-primary">+info</button></td></tr>';
 
         $(htmlStr).appendTo(usersTable)
 

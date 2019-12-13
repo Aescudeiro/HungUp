@@ -23,6 +23,7 @@ public class CompanyServiceImpl implements CompanyService {
         review.setReview( "ahahah" );
         review.setRating( 4 );
         review.setId( 1 );
+        review.setDays(6);
         companyModel.addReview( review );
 
         ReviewModel review1 = new ReviewModel();
@@ -30,6 +31,7 @@ public class CompanyServiceImpl implements CompanyService {
         review1.setReview( "ola3" );
         review1.setRating( 4 );
         review1.setId( 2 );
+        review1.setDays(3);
         companyModel.addReview( review1 );
 
         companies.add( companyModel );

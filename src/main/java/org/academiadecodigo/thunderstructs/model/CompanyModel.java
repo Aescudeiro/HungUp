@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CompanyModel implements Model {
 
-	private Integer days;
+	private Integer days = 0;
 	private static Integer counter = 0;
 	private Integer id;
 	private double rating;
