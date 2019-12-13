@@ -16,22 +16,24 @@ public class CompanyServiceImpl implements CompanyService {
         this.companies = new LinkedList<>();
         CompanyModel companyModel = new CompanyModel();
         companyModel.setName( "Worten" );
+        companyModel.setRating(5);
+
 
         CompanyModel companyModel1 = new CompanyModel();
         companyModel1.setName( "Rádio Popular" );
-        companyModel1.setRating( 2 );
+        companyModel1.setRating( 5 );
 
         CompanyModel companyModel2 = new CompanyModel();
         companyModel2.setName( "Global Data" );
-        companyModel2.setRating( 3 );
+        companyModel2.setRating( 5 );
 
         CompanyModel companyModel3 = new CompanyModel();
         companyModel3.setName( "Gear Best" );
-        companyModel3.setRating( 1 );
+        companyModel3.setRating( 5 );
 
         CompanyModel companyModel4 = new CompanyModel();
         companyModel4.setName( "Amazon" );
-        companyModel4.setRating( 1 );
+        companyModel4.setRating( 5 );
 
         CompanyModel companyModel5 = new CompanyModel();
         companyModel5.setName( "Ebay" );
@@ -39,23 +41,12 @@ public class CompanyServiceImpl implements CompanyService {
 
         CompanyModel companyModel6 = new CompanyModel();
         companyModel6.setName( "Ali Express" );
-        companyModel6.setRating( 4 );
+        companyModel6.setRating( 5 );
 
-        ReviewModel review = new ReviewModel();
-        review.setName( "Afonso" );
-        review.setReview( "ahahah" );
-        review.setRating( 4 );
-        review.setId( 1 );
-        review.setDays(6);
-        companyModel.addReview( review );
-
-        ReviewModel review1 = new ReviewModel();
-        review1.setName( "Bro" );
-        review1.setReview( "ola3" );
-        review1.setRating( 4 );
-        review1.setId( 2 );
-        review1.setDays(3);
-        companyModel.addReview( review1 );
+        ReviewModel reviewModel = new ReviewModel();
+        reviewModel.setRating(5);
+        reviewModel.setDays(8);
+        companyModel.addReview(reviewModel);
 
         companies.add( companyModel );
         companies.add( companyModel1 );
@@ -107,6 +98,8 @@ public class CompanyServiceImpl implements CompanyService {
                 }
                 companyModel.setRating( (Math.round(rating / counter) * 100) / 100 );
                 companyModel.setDays( (Math.round(day / counter) * 100) / 100 );
+
+
             }
         }
     }

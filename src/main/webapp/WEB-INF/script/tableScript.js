@@ -1,4 +1,5 @@
-var name = ""
+var name = "";
+var counter = 0;
 
 function myFunction() {
   // Declare variables
@@ -23,8 +24,6 @@ function myFunction() {
 }
 
 
-
-
 function companyInfo(name) {
   $(".hide").hide();
   $(".show").show();
@@ -33,6 +32,7 @@ function companyInfo(name) {
 }
 
 function showDetails(name) {
+
 
   function successCallback(response) {
     setReviews(response);
@@ -52,6 +52,9 @@ function showDetails(name) {
   });
 
   function setReviews(data) {
+    var x = document.getElementById("reviewsTable").rows.length
+
+
     for (var i = 0; i < data.length; i++) {
       var string = '<tr id= "row' + data[i].id + '"><td>' + data[i].id + '</td>' +
         '<td>' + data[i].name + '</td>' +
@@ -59,13 +62,15 @@ function showDetails(name) {
         '<td>' + data[i].days + '</td>' +
         '<td>' + data[i].review + '</td></tr>';
 
-
+      console.log("loop");
       $(string).appendTo(reviewsTable)
+
     }
   }
 }
 
-function menu(){
+function menu() {
+  location.reload();
   $(".show").hide();
   $("#review").hide();
   $(".hide").show();
@@ -77,40 +82,40 @@ function adjust_textarea(h) {
   h.style.height = (h.scrollHeight) + "px";
 }
 
-function addReviewForm(){
-    $("#review").show();
-    
-    console.log(name);
-    $("#companyName").val(name);
+function addReviewForm() {
+  $("#review").show();
+
+  console.log(name);
+  $("#companyName").val(name);
 }
 
 function addReview() {
   $("#review").hide;
 
-function successCallback() {
-  alert("Review Added Sucessfully");
-  menu();
+  function successCallback() {
+    alert("Review Added Sucessfully");
+    menu();
 
-}
+  }
 
-function errorCallback() {
-  alert("not okay");
-}
+  function errorCallback() {
+    alert("not okay");
+  }
 
-$.ajax({
-  url: 'http://localhost:8080/hungup/api/company/'+name+'/review',
-  type: 'POST',
-  data: JSON.stringify({
+  $.ajax({
+    url: 'http://localhost:8080/hungup/api/company/' + name + '/review',
+    type: 'POST',
+    data: JSON.stringify({
       "name": $("#formName").val(),
       "rating": $("#formRating").val(),
-      "days":$("#formDays").val(),
+      "days": $("#formDays").val(),
       "review": $("#formDescription").val()
-  }),
-  async: true,
-  contentType: 'application/json',
-  success: successCallback,
-  error: errorCallback
-});
+    }),
+    async: true,
+    contentType: 'application/json',
+    success: successCallback,
+    error: errorCallback
+  });
 }
 
 $(document).ready(function () {
@@ -143,10 +148,8 @@ $(document).ready(function () {
 
       var htmlStr = '<tr id= "row' + companyData[i].id + '"><td>' + companyData[i].id + '</td>' +
         '<td>' + companyData[i].name + '</td>' +
-        '<td>' + companyData[i].days + '</td>' +
-        '<td>' + companyData[i].rating + '</td>' +
         '<td><button id="btn-' + companyData[i].id + '" type="button" class="btn btn-primary">+info</button></td></tr>';
-
+      counter++;
       $(htmlStr).appendTo(usersTable)
 
       name = companyData[i].name;
