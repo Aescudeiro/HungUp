@@ -32,7 +32,7 @@
         <div class="info">
             <div class="button_cont"><a class="button" href="#myInput" rel="nofollow noopener">Begin your search</a>
             </div>
-            <h1 id="title" >For your inpatient ass</h1>
+            <h1 id="title">For your inpatient ass</h1>
             <div class="meta">
                 <a href="https://github.com/Aescudeiro/HungUp" target="_blank" class="author"></a><br>
                 <a href="https://github.com/Aescudeiro/HungUp" target="_blank"></a>
@@ -41,7 +41,9 @@
     </div>
 
     <div class="hide">
-        <div style="display:flex;justify-content: center">
+
+
+        <div class="disp" style="display:flex;justify-content: center">
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
         </div>
         <div id="companyTable" style="display:flex;justify-content: center">
@@ -59,7 +61,32 @@
         </div>
     </div>
 
+    <div id="review" class="container">
+        <form>
+                        <div class="form-group">
+                          <label>Name</label>
+                          <input id="formName" type="text" class="form-control" id="formGroupExampleInput" placeholder="First and Last Name">
+                        </div>
+                        <div class="form-group">
+                          <label>Rating</label>
+                          <input id="formRating" type="number" min="1" max="5" class="form-control" id="formGroupExampleInput2">
+                        </div>
+                        <div class="form-group">
+                                <label>Days</label>
+                                <input id="formDays" type="number" class="form-control" id="Days to arrive">
+                        </div>
+                        <div class="form-group">
+                                <label>Review</label>
+                                <input id="formDescription" type="text" class="form-control" id="formGroupExampleInput" placeholder="Add description for the review">
+                            </div>
+                        
+                    <input class="subBtn" type="submit" onclick="addReview()" value="Send the review">
+        </form>
+    </div>
+
     <div class="show">
+        <button id="formShow" type="button" onclick="addReviewForm()" class="btn btn-dark">Add Review</button>
+        <button id="back" type="button" onclick="menu()" class="btn btn-dark">Back</button>
         <div id="reviewTable" style="display:flex;justify-content: center">
             <table class="table" id="reviewsTable">
                 <thead class="thead-dark">

@@ -105,8 +105,8 @@ public class CompanyServiceImpl implements CompanyService {
                 if(counter == 0){
                     return;
                 }
-                companyModel.setRating( rating / counter );
-                companyModel.setDays( day / counter );
+                companyModel.setRating( (Math.round(rating / counter) * 100) / 100 );
+                companyModel.setDays( (Math.round(day / counter) * 100) / 100 );
             }
         }
     }

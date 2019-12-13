@@ -1,3 +1,5 @@
+var name = ""
+
 function myFunction() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
@@ -20,55 +22,101 @@ function myFunction() {
   }
 }
 
-function companyInfo(name){
-  console.log("did")
+
+
+
+function companyInfo(name) {
   $(".hide").hide();
   $(".show").show();
   $("#title").text(name);
   showDetails(name);
 }
 
-function showDetails(name){
+function showDetails(name) {
 
   function successCallback(response) {
-    alert("hey nigga");
     setReviews(response);
   }
 
   function errorCallback(request, status, error) {
-      console.log(request + status + error);
+    console.log(request + status + error);
   }
 
   var reviewsTable = $('#reviewsTable');
 
   $.ajax({
-    url: 'http://localhost:8080/hungup/api/company/'+ name + '/review',
+    url: 'http://localhost:8080/hungup/api/company/' + name + '/review',
     async: true,
     success: successCallback,
     error: errorCallback
-});
+  });
 
-function setReviews(data){
-  console.log(data[1].name)
-  for(var i = 0; i < data.length; i++){
-    var string = '<tr id= "row' + data[i].id + '"><td>' + data[i].id + '</td>' +
-    '<td>' + data[i].name + '</td>' +
-    '<td>' + data[i].rating + '</td>' +
-    '<td>' + data[i].days + '</td>' +
-    '<td>' + data[i].review + '</td></tr>';
+  function setReviews(data) {
+    for (var i = 0; i < data.length; i++) {
+      var string = '<tr id= "row' + data[i].id + '"><td>' + data[i].id + '</td>' +
+        '<td>' + data[i].name + '</td>' +
+        '<td>' + data[i].rating + '</td>' +
+        '<td>' + data[i].days + '</td>' +
+        '<td>' + data[i].review + '</td></tr>';
 
 
-    $(string).appendTo(reviewsTable)
+      $(string).appendTo(reviewsTable)
+    }
   }
 }
 
+function menu(){
+  $(".show").hide();
+  $("#review").hide();
+  $(".hide").show();
+  $("#title").text("For your impatient ass");
+}
 
+function adjust_textarea(h) {
+  h.style.height = "20px";
+  h.style.height = (h.scrollHeight) + "px";
+}
 
+function addReviewForm(){
+    $("#review").show();
+    
+    console.log(name);
+    $("#companyName").val(name);
+}
+
+function addReview() {
+  $("#review").hide;
+
+function successCallback() {
+  alert("Review Added Sucessfully");
+  menu();
+
+}
+
+function errorCallback() {
+  alert("not okay");
+}
+
+$.ajax({
+  url: 'http://localhost:8080/hungup/api/company/'+name+'/review',
+  type: 'POST',
+  data: JSON.stringify({
+      "name": $("#formName").val(),
+      "rating": $("#formRating").val(),
+      "days":$("#formDays").val(),
+      "review": $("#formDescription").val()
+  }),
+  async: true,
+  contentType: 'application/json',
+  success: successCallback,
+  error: errorCallback
+});
 }
 
 $(document).ready(function () {
 
   $(".show").hide();
+  $("#review").hide();
 
   function successCallback(response) {
     //console.log(response);
@@ -76,7 +124,7 @@ $(document).ready(function () {
   }
 
   function errorCallback(request, status, error) {
-      console.log(request + status + error);
+    console.log(request + status + error);
   }
 
   var usersTable = $('#myTable');
@@ -86,26 +134,26 @@ $(document).ready(function () {
     async: true,
     success: successCallback,
     error: errorCallback
-});
+  });
 
 
-function setInfo(companyData) {
+  function setInfo(companyData) {
 
     for (var i = 0; i < companyData.length; i++) {
 
-        var htmlStr = '<tr id= "row' + companyData[i].id + '"><td>' + companyData[i].id + '</td>' +
-            '<td>' + companyData[i].name + '</td>' +
-            '<td>' + companyData[i].days + '</td>' +
-            '<td>' + companyData[i].rating + '</td>' +
-            '<td><button id="btn-' + companyData[i].id +'" type="button" class="btn btn-primary">+info</button></td></tr>';
+      var htmlStr = '<tr id= "row' + companyData[i].id + '"><td>' + companyData[i].id + '</td>' +
+        '<td>' + companyData[i].name + '</td>' +
+        '<td>' + companyData[i].days + '</td>' +
+        '<td>' + companyData[i].rating + '</td>' +
+        '<td><button id="btn-' + companyData[i].id + '" type="button" class="btn btn-primary">+info</button></td></tr>';
 
-        $(htmlStr).appendTo(usersTable)
+      $(htmlStr).appendTo(usersTable)
 
-        var name = companyData[i].name;
+      name = companyData[i].name;
 
-        $('#btn-' + companyData[i].id).click(function() {
-          companyInfo(name);
-       });
+      $('#btn-' + companyData[i].id).click(function () {
+        companyInfo(name);
+      });
     }
-}
+  }
 });
