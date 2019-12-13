@@ -41,6 +41,9 @@ public class CompanyController {
 
 	@RequestMapping ( method = RequestMethod.GET )
 	public ResponseEntity< List< CompanyDTO > > getCompanyList () {
+		for(CompanyModel companyModel : companyService.getCompanies()) {
+			companyService.update( companyModel.getName() );
+		}
 		return new ResponseEntity<>( companyToCompanyDto.convertList( companyService.getCompanies() ), HttpStatus.OK );
 	}
 
@@ -59,6 +62,7 @@ public class CompanyController {
 	public ResponseEntity<List< ReviewModel >> getReviewList(@PathVariable String name) {
 		for ( CompanyModel model : companyService.getCompanies() ) {
 			if ( model.getName().equals( name ) ) {
+				companyService.update( model.getName() );
 				return new ResponseEntity<>( model.getReviews(),HttpStatus.OK );
 			}
 		}
@@ -93,6 +97,7 @@ public class CompanyController {
 		for ( CompanyModel model : companyService.getCompanies() ) {
 			if ( model.getName().equals( name ) ) {
 				model.addReview( reviewModel );
+				companyService.update( model.getName() );
 				return new ResponseEntity<>( reviewModel, HttpStatus.CREATED );
 			}
 		}

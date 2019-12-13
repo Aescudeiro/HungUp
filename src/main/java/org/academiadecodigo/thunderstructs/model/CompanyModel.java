@@ -5,8 +5,10 @@ import java.util.List;
 
 public class CompanyModel implements Model {
 
+	private Integer days;
 	private static Integer counter = 0;
 	private Integer id;
+	private double rating;
 	private String name;
 	private List<ReviewModel> reviews;
 
@@ -14,6 +16,14 @@ public class CompanyModel implements Model {
 		reviews = new LinkedList<>();
 		this.counter++;
 		this.id = this.counter;
+	}
+
+	public double getRating () {
+		return rating;
+	}
+
+	public void setRating ( double rating ) {
+		this.rating = rating;
 	}
 
 	@Override
@@ -26,7 +36,15 @@ public class CompanyModel implements Model {
 		this.id = id;
 	}
 
-	public void setName(String name){
+	public Integer getDays () {
+		return days;
+	}
+
+	public void setDays ( Integer days ) {
+		this.days = days;
+	}
+
+	public void setName( String name){
 		this.name = name;
 	}
 

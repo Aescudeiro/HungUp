@@ -3,8 +3,26 @@ package org.academiadecodigo.thunderstructs.dto;
 public class ReviewDTO {
 
 	private Integer id;
+	private String name;
 	private double rating;
+	private Integer days;
 	private String review;
+
+	public String getName () {
+		return name;
+	}
+
+	public void setName ( String name ) {
+		this.name = name;
+	}
+
+	public Integer getDays () {
+		return days;
+	}
+
+	public void setDays ( Integer days ) {
+		this.days = days;
+	}
 
 	public Integer getId () {
 		return id;

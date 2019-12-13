@@ -24,7 +24,8 @@ public class CompanyDtoToCompany {
         CompanyModel model = new CompanyModel();
         model.setName(dto.getName());
         model.setReviews(dto.getReviews());
-
+        model.setRating( dto.getRating() );
+        model.setDays( dto.getDays() );
         return model;
     }
 

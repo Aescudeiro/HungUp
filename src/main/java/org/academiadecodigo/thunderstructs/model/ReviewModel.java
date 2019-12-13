@@ -2,10 +2,12 @@ package org.academiadecodigo.thunderstructs.model;
 
 public class ReviewModel implements Model {
 
-	private static Integer counter = 0;
 	private Integer id;
+	private String name;
+	private static Integer counter = 0;
 	private double rating;
 	private String review;
+	private Integer days;
 
 	public ReviewModel () {
 		this.counter++;
@@ -20,6 +22,22 @@ public class ReviewModel implements Model {
 	@Override
 	public void setId (Integer id) {
 		this.id = id;
+	}
+
+	public Integer getDays () {
+		return days;
+	}
+
+	public void setDays ( Integer days ) {
+		this.days = days;
+	}
+
+	public String getName () {
+		return name;
+	}
+
+	public void setName ( String name ) {
+		this.name = name;
 	}
 
 	public double getRating () {
