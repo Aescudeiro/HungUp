@@ -15,8 +15,31 @@ public class CompanyServiceImpl implements CompanyService {
     public CompanyServiceImpl() {
         this.companies = new LinkedList<>();
         CompanyModel companyModel = new CompanyModel();
-        companyModel.setId( 1 );
-        companyModel.setName( "ola" );
+        companyModel.setName( "Worten" );
+
+        CompanyModel companyModel1 = new CompanyModel();
+        companyModel1.setName( "Rádio Popular" );
+        companyModel1.setRating( 2 );
+
+        CompanyModel companyModel2 = new CompanyModel();
+        companyModel2.setName( "Global Data" );
+        companyModel2.setRating( 3 );
+
+        CompanyModel companyModel3 = new CompanyModel();
+        companyModel3.setName( "Gear Best" );
+        companyModel3.setRating( 1 );
+
+        CompanyModel companyModel4 = new CompanyModel();
+        companyModel4.setName( "Amazon" );
+        companyModel4.setRating( 1 );
+
+        CompanyModel companyModel5 = new CompanyModel();
+        companyModel5.setName( "Ebay" );
+        companyModel5.setRating( 5 );
+
+        CompanyModel companyModel6 = new CompanyModel();
+        companyModel6.setName( "Ali Express" );
+        companyModel6.setRating( 4 );
 
         ReviewModel review = new ReviewModel();
         review.setName( "Afonso" );
@@ -35,6 +58,12 @@ public class CompanyServiceImpl implements CompanyService {
         companyModel.addReview( review1 );
 
         companies.add( companyModel );
+        companies.add( companyModel1 );
+        companies.add( companyModel2 );
+        companies.add( companyModel3 );
+        companies.add( companyModel4 );
+        companies.add( companyModel5 );
+        companies.add( companyModel6 );
 
     }
 
@@ -72,6 +101,9 @@ public class CompanyServiceImpl implements CompanyService {
                     rating += reviewModel.getRating();
                     day += reviewModel.getDays();
                     counter++;
+                }
+                if(counter == 0){
+                    return;
                 }
                 companyModel.setRating( rating / counter );
                 companyModel.setDays( day / counter );

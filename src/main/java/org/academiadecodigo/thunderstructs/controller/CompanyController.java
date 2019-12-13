@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin ( origins = "*", maxAge = 3600 )
 @RestController
 @RequestMapping ( "/api/company" )
-public class CompanyController {
+public class CompanyController{
 
 	private CompanyDtoToCompany companyDtoToCompany;
 	private CompanyToCompanyDto companyToCompanyDto;
@@ -40,10 +40,12 @@ public class CompanyController {
 
 	@RequestMapping ( method = RequestMethod.GET )
 	public ResponseEntity< List< CompanyDTO > > getCompanyList () {
-		for(CompanyModel companyModel : companyService.getCompanies()) {
+		List< CompanyDTO > companyDTOList = companyToCompanyDto.convertList( companyService.getCompanies());
+
+		for ( CompanyModel companyModel : companyService.getCompanies() ) {
 			companyService.update( companyModel.getName() );
 		}
-		return new ResponseEntity<>( companyToCompanyDto.convertList( companyService.getCompanies() ), HttpStatus.OK );
+		return new ResponseEntity<>( companyDTOList , HttpStatus.OK );
 	}
 
 	@RequestMapping ( method = RequestMethod.GET, path = "/{name}" )
@@ -57,25 +59,25 @@ public class CompanyController {
 		return new ResponseEntity<>( HttpStatus.NOT_FOUND );
 	}
 
-	@RequestMapping (method = RequestMethod.GET, path = "/{name}/review")
-	public ResponseEntity<List< ReviewModel >> getReviewList(@PathVariable String name) {
+	@RequestMapping ( method = RequestMethod.GET, path = "/{name}/review" )
+	public ResponseEntity< List< ReviewModel > > getReviewList ( @PathVariable String name ) {
 		for ( CompanyModel model : companyService.getCompanies() ) {
 			if ( model.getName().equals( name ) ) {
 				companyService.update( model.getName() );
-				return new ResponseEntity<>( model.getReviews(),HttpStatus.OK );
+				return new ResponseEntity<>( model.getReviews(), HttpStatus.OK );
 			}
 		}
 		return new ResponseEntity<>( HttpStatus.NOT_FOUND );
 	}
 
-	@RequestMapping (method = RequestMethod.GET, path = "/{name}/review/{id}")
-	public ResponseEntity<ReviewModel> getReview(@PathVariable String name, @PathVariable Integer id){
+	@RequestMapping ( method = RequestMethod.GET, path = "/{name}/review/{id}" )
+	public ResponseEntity< ReviewModel > getReview ( @PathVariable String name, @PathVariable Integer id ) {
 		for ( CompanyModel model : companyService.getCompanies() ) {
 			if ( model.getName().equals( name ) ) {
-				for ( ReviewModel r : model.getReviews()) {
-					if (r.getId().equals( id )){
-						companyService.update(model.getName());
-						return new ResponseEntity<>( r,HttpStatus.OK );
+				for ( ReviewModel r : model.getReviews() ) {
+					if ( r.getId().equals( id ) ) {
+						companyService.update( model.getName() );
+						return new ResponseEntity<>( r, HttpStatus.OK );
 					}
 				}
 			}
@@ -87,14 +89,13 @@ public class CompanyController {
 	public ResponseEntity< CompanyDTO > addCompany ( @RequestBody CompanyDTO companyDTO ) {
 		CompanyModel model = companyDtoToCompany.convert( companyDTO );
 		companyDTO.setId( model.getId() );
-		companyService.update(model.getName());
+		companyService.update( model.getName() );
 		companyService.addCompany( model );
-		return new ResponseEntity<>( companyDTO, HttpStatus.CREATED );
+		return new ResponseEntity<>( companyToCompanyDto.convert( model ), HttpStatus.CREATED );
 	}
 
-	@RequestMapping (method = RequestMethod.POST, path = "/{name}/review")
-	public ResponseEntity<ReviewModel> addReview(@RequestBody ReviewModel reviewModel, @PathVariable String name) {
-		ReviewModel reviewModel1 = reviewModel;
+	@RequestMapping ( method = RequestMethod.POST, path = "/{name}/review" )
+	public ResponseEntity< ReviewModel > addReview ( @RequestBody ReviewModel reviewModel, @PathVariable String name ) {
 		for ( CompanyModel model : companyService.getCompanies() ) {
 			if ( model.getName().equals( name ) ) {
 				model.addReview( reviewModel );

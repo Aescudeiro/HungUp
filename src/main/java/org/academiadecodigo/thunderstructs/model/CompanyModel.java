@@ -64,17 +64,4 @@ public class CompanyModel implements Model {
 		reviews.add(review);
 	}
 
-	public ReviewModel openReview(Integer id){
-
-		ReviewModel target = null;
-
-		for(ReviewModel review : reviews){
-			if(review.getId() == id){
-				target = review;
-				break;
-			}
-		}
-
-		return target;
-	}
 }
